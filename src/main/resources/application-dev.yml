@@ -1,0 +1,18 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /platform-clienta
+
+
+auth-server: http://localhost:8080/platform-server
+
+security:
+  oauth2:
+    client:
+      client-id: client1
+      client-secret: secret1
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      access-token-uri: ${auth-server}/oauth/token
+    resource:
+      token-info-uri: ${auth-server}/oauth/check_token
+      user-info-uri: ${auth-server}/auth/user/me # 从授权服务器获取当前登录用户信息的地址
